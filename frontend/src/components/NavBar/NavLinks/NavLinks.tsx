@@ -9,10 +9,10 @@ export const NavLinks: React.FC = () => {
                 <Button btnClass='ButtonLink' path='/' >Pradinis</Button>
                 <Button btnClass='ButtonLink' path='/about' >Apie mus</Button>
                 <Button btnClass='ButtonLink' path='/about' >Kontaktai</Button>
-                <Button btnClass='ButtonLink' path='/about' >Žaidimai</Button>
+                <Button btnClass='ButtonLink' path='/games' >Žaidimai</Button>
             </div>
             <div>
-                <Button btnClass='ButtonGrey' path='/about' >Prisijungti</Button>
+                <Button btnClass='ButtonGrey' path='/login' >Prisijungti</Button>
                 <Button btnClass='ButtonBlue' path='/about' >Registruotis</Button>
             </div>
         </div >

@@ -1,0 +1,49 @@
+.SliderInfo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.SliderText {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+  }
+  a {
+    font-size: 2vw;
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .SliderText {
+    h3 {
+      font-size: 7vw;
+    }
+
+    a {
+      font-size: 3vw;
+      padding: 5px 15px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .SliderText {
+    h3 {
+      font-size: 7vw;
+    }
+
+    a {
+      font-size: 4vw;
+      padding: 5px 15px;
+    }
+  }
+}
