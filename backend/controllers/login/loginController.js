@@ -1,21 +1,14 @@
-let users = [];
+const loginService = require("../../services/login/loginService");
 
-const LoginHandler = (req, res, next) => {
-  const userName = req.body.name;
-  const surName = req.body.surname;
-
-  const user = {
-    name: userName,
-    surname: surName,
-  };
-
-  users.push(user);
-  res.json(user);
+const handleUserLogin = async (req, res, next) => {
+  try {
+    const user = { ...req.body };
+    await loginService.checkForUserDetails(user).then((response) => {
+      res.status(200).json(response);
+    });
+  } catch (error) {
+    res.status(404).json(error);
+  }
 };
 
-const GetUser = (req, res, next) => {
-  res.json(users);
-};
-
-exports.LoginHandler = LoginHandler;
-exports.GetUser = GetUser;
+exports.handleUserLogin = handleUserLogin;

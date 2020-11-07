@@ -1,16 +1,14 @@
 .LoginLayout {
   width: 100%;
   height: 100vh;
-  background: url("../../assets/Images/home-slider.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
+  background-color: rgba(0, 0, 0, 0.664);
   justify-content: center;
   align-items: center;
   text-align: center;
   position: absolute;
   top: 0;
+  z-index: 200;
 }
 
 .Login {
@@ -33,7 +31,7 @@
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 17px;
     color: #2359a0;
   }
 
@@ -63,5 +61,13 @@
     margin: 10px auto;
     padding: 10px 10px;
     width: 90%;
+    font-size: 16px;
   }
+}
+
+.Icon {
+  margin-left: auto;
+  font-size: 30px;
+  color: #2359a0;
+  cursor: pointer;
 }
