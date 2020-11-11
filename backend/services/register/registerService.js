@@ -1,7 +1,7 @@
 const User = require("../../DB/Schemas/User");
 
-const insertUserEntity = (user) => {
-  return new Promise((resolve, reject) => {
+const insertUserEntity = async (user) => {
+  return await new Promise((resolve, reject) => {
     const { email } = user;
     User.countDocuments({ email }).then((response) => {
       if (response != 0) {

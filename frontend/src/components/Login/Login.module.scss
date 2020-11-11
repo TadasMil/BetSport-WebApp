@@ -56,7 +56,14 @@
     font-size: 14px;
   }
 
-  a {
+  p {
+    color: red;
+    margin: 5px 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  button {
     letter-spacing: 2px;
     margin: 10px auto;
     padding: 10px 10px;

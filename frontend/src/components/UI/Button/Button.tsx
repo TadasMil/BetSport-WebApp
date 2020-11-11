@@ -9,5 +9,5 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ path, children, btnClass }) => {
-    return <Link className={styles[btnClass]} to={path}> {children}</Link>
+    return <Link className={styles[btnClass]} to={path}>{children}</Link>
 }

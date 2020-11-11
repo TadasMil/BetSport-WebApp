@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+import { FieldError } from 'react-hook-form'
 
 interface InputProps {
     type: string;
     name: string;
     placeholder: string;
+    errorDisplay?: FieldError;
+    required: {}
 }
 
-export const Input: React.FC<InputProps> = ({ type, name, placeholder }) => {
+const Input = React.forwardRef<ReactElement, InputProps>(({ type, name, placeholder, errorDisplay, required }, ref: any) => {
     return (
-        <input type={type} name={name} placeholder={placeholder}></input>
+        <div>
+            <input ref={ref(required)} type={type} name={name} placeholder={placeholder} />
+            {errorDisplay && <p>{errorDisplay.message}</p>}
+        </div>
     )
-}
+})
+
+export default Input;

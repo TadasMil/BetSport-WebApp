@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Login } from '../Login/Login'
 import { Register } from '../Login/Register'
-import styles from './NavBar.module.scss'
 import { NavImage } from './NavImage/NavImage'
 import { NavLinks } from './NavLinks/NavLinks'
 import { ModalOptions } from '../../enums/ModalOptions'
+import styles from './NavBar.module.scss'
 
 export const NavBar: React.FC = () => {
     const [toggleLogin, setToggleLogin] = useState<ModalOptions>(ModalOptions.None)

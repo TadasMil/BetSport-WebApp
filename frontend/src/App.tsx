@@ -10,7 +10,6 @@ function App() {
       <NavBar />
       <Layout>
         <Routes>
-
         </Routes>
       </Layout>
     </>
