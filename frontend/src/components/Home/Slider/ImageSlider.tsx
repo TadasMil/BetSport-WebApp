@@ -1,6 +1,5 @@
 import React from 'react'
 import { Images } from '../../../assets/Images/Images'
-import { Button } from '../../UI/Button/Button';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

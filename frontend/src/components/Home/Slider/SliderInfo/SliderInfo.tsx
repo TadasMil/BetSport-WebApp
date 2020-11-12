@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../../UI/Button/Button'
+import { LinkButton } from '../../../UI/Button/LinkButton'
 import styles from './SliderInfo.module.scss'
 
 interface SliderInfoProps {
@@ -12,7 +12,7 @@ export const SliderInfo: React.FC<SliderInfoProps> = ({ sliderInfo, sliderButton
         <div className={styles.SliderInfo}>
             <div className={styles.SliderText}>
                 <h3>{sliderInfo}</h3>
-                <Button btnClass='ButtonBlue' path='/about'>{sliderButtonInfo}</Button>
+                <LinkButton btnClass='ButtonBlue' path='/about'>{sliderButtonInfo}</LinkButton>
             </div>
         </div>
     )

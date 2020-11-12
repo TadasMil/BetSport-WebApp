@@ -5,6 +5,7 @@ import { STORE_AUTH_TOKEN } from "../actions/storeAuthToke";
 interface Auth {
   auth?: string;
 }
+
 const initialState: Auth = {
   auth: undefined,
 };

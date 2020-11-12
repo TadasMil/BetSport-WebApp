@@ -8,6 +8,6 @@ interface ButtonProps {
     btnClass: any;
 }
 
-export const Button: React.FC<ButtonProps> = ({ path, children, btnClass }) => {
+export const LinkButton: React.FC<ButtonProps> = ({ path, children, btnClass }) => {
     return <Link className={styles[btnClass]} to={path}>{children}</Link>
 }

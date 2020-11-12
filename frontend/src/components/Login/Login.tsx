@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginButton } from '../UI/Button/LoginButton/LoginButton'
-import Input from '../UI/Inputs/Input'
 import { ModalOptions } from '../../enums/ModalOptions'
 import { useForm } from "react-hook-form";
 import { requiredValidation, passwordValidation } from '../../utilities/Validator'
 import { IoMdClose } from 'react-icons/io'
+import { WrongDetails } from '../UI/ErrorHandlings/WrongDetails';
+import { storeAuthToken } from '../../store/actions/storeAuthToke';
+import { RootState } from '../../store/reducers';
+import Input from '../UI/Inputs/Input'
 import axios from '../../axios/axios'
 import styles from './Login.module.scss'
-import { WrongDetails } from '../UI/ErrorHandlings/WrongDetails';
-
-import { storeAuthToken } from '../../store/actions/storeAuthToke';
 
 interface LoginProps {
     handleToggleLogin: (selectedModal: ModalOptions) => void;
@@ -25,16 +25,15 @@ export const Login: React.FC<LoginProps> = ({ handleToggleLogin }) => {
     const { register, handleSubmit, errors } = useForm<UserData>();
     const [wrongDetails, setWrongDetails] = useState<boolean>(false);
     const dispatch = useDispatch();
-    const userToken = useSelector((state: any) => {
-        return state.auth.auth;
-    })
-    console.log(userToken);
+
     const formSubmit = handleSubmit(({ email, password }) => {
         axios.post('login', { email, password })
             .then(response => {
                 console.log(response);
                 dispatch(storeAuthToken(response.data.accessToken));
+                handleToggleLogin(ModalOptions.None);
                 setWrongDetails(false);
+
             })
             .catch(error => {
                 console.log(error);
