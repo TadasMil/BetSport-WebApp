@@ -1,11 +1,13 @@
 import React from 'react'
-import { LinkButton } from '../../UI/Button/LinkButton'
+import { Link } from '../../UI/Button/Link'
 import { ModalOptions } from '../../../enums/ModalOptions'
-import { useSelector } from 'react-redux';
-import { LoginToggle } from '../../UI/Button/ModalToggle/LoginToggle'
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from '../../UI/Button/Button'
 import { RootState } from '../../../store/reducers';
 import { ProfileBar } from '../../Profile/ProfileBar';
 import styles from './NavLinks.module.scss'
+import { Redirect } from 'react-router-dom';
+import { removeAuthToken } from '../../../store/actions/storeAuthToke';
 
 interface NavLinksProps {
     invokeLoginLayout: (selectedModal: ModalOptions) => void;
@@ -15,25 +17,30 @@ export const NavLinks: React.FC<NavLinksProps> = ({ invokeLoginLayout }) => {
     const userToken = useSelector((state: RootState) => {
         return state.auth.auth;
     })
+    const dispatch = useDispatch();
+
+    const removeCurrentUser = (): void => {
+        dispatch(removeAuthToken());
+    }
 
     return (
         <div className={styles.NavLinks}>
             <div className={styles.Links}>
-                <LinkButton btnClass='ButtonLink' path='/' >Pradinis</LinkButton>
-                <LinkButton btnClass='ButtonLink' path='/about' >Apie mus</LinkButton>
-                <LinkButton btnClass='ButtonLink' path='/about' >Kontaktai</LinkButton>
-                <LinkButton btnClass='ButtonLink' path='/games' >Žaidimai</LinkButton>
+                <Link btnClass='ButtonLink' path='/' >Pradinis</Link>
+                <Link btnClass='ButtonLink' path='/about' >Apie mus</Link>
+                <Link btnClass='ButtonLink' path='/about' >Kontaktai</Link>
+                <Link btnClass='ButtonLink' path='/games' >Žaidimai</Link>
             </div>
             <div>
                 {
                     !userToken ?
                         <>
-                            <LoginToggle btnClass='ButtonGrey' invokeLoginLayout={invokeLoginLayout} modalType={ModalOptions.Login}>Prisijungti</LoginToggle>
-                            <LoginToggle btnClass='ButtonBlue' invokeLoginLayout={invokeLoginLayout} modalType={ModalOptions.Register}>Registruotis</LoginToggle>
+                            <Button btnClass='ButtonGrey' onClick={() => invokeLoginLayout(ModalOptions.Login)}>Prisijungti</Button>
+                            <Button btnClass='ButtonBlue' onClick={() => invokeLoginLayout(ModalOptions.Register)}>Registruotis</Button>
                         </>
                         :
                         <>
-                            <ProfileBar />
+                            <ProfileBar removeCurrentUser={removeCurrentUser} />
                         </>
                 }
             </div>

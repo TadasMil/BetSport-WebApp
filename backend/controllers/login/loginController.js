@@ -7,7 +7,8 @@ const handleUserLogin = async (req, res, next) => {
       res.status(200).json(response);
     });
   } catch (error) {
-    return res.status(401).json(error);
+    console.log(error);
+    return res.status(401).json({ error });
   }
 };
 

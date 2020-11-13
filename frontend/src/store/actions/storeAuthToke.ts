@@ -1,8 +1,12 @@
-const STORE_AUTH_TOKEN = "STORE_AUTH_TOKEN";
+import { SET_AUTH_ACTION, REMOVE_AUTH_TOKEN } from "./";
 
 const storeAuthToken = (token: string) => ({
-  type: STORE_AUTH_TOKEN,
+  type: SET_AUTH_ACTION,
   payload: token,
 });
 
-export { storeAuthToken, STORE_AUTH_TOKEN };
+const removeAuthToken = () => ({
+  type: REMOVE_AUTH_TOKEN,
+});
+
+export { storeAuthToken, removeAuthToken };
