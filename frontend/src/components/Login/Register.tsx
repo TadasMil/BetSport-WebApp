@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { IoMdClose } from 'react-icons/io'
+import { Button } from '../UI/Button/Button'
 import Input from '../UI/Inputs/Input'
 import { ModalOptions } from '../../enums/ModalOptions'
-import { requiredValidation, passwordValidation, nameValidation, lastNameValidation } from '../../utilities/Validator'
-import styles from './Login.module.scss'
+import { requiredValidationCheck, passwordValidation } from '../../utilities/Validator'
+import { WrongDetailsMessage } from '../UI/ErrorHandlings/WrongDetailsMessage';
 import { useForm } from 'react-hook-form'
-import { Button } from '../UI/Button/Button'
+import axios from '../../axios/axios'
+import { IoMdClose } from 'react-icons/io'
+import styles from './Login.module.scss'
+import { BackEndPoints } from '../../utilities/BackEndPoints'
 
 interface RegisterProps {
     handleToggleLogin: (selectedModal: ModalOptions) => void;
@@ -20,10 +23,17 @@ interface UserData {
 
 export const Register: React.FC<RegisterProps> = ({ handleToggleLogin }) => {
     const { register, handleSubmit, errors } = useForm<UserData>();
+    const [wrongRegisterDetails, setWrongRegisterDetails] = useState<string>("");
 
     const formSubmit = handleSubmit(({ email, firstName, secondName, password }) => {
-        console.log(email, firstName, secondName, password)
-    })
+        axios.post(BackEndPoints.registerUser, { email, firstName, secondName, password })
+            .then(response => {
+                handleToggleLogin(ModalOptions.Login);
+            })
+            .catch(error => {
+                setWrongRegisterDetails(error.response.data.message);
+            });
+    });
 
     return (
         <div className={styles.LoginLayout}>
@@ -31,10 +41,11 @@ export const Register: React.FC<RegisterProps> = ({ handleToggleLogin }) => {
                 <IoMdClose className={styles.Icon} onClick={() => handleToggleLogin(ModalOptions.None)}></IoMdClose>
                 <form onSubmit={formSubmit}>
                     <h3>Registracija</h3>
-                    <Input type="email" name="email" ref={register} required={requiredValidation} placeholder="Elektroninis paštas" errorDisplay={errors.email} />
-                    <Input type="text" name="firstName" ref={register} required={nameValidation} placeholder="Vardas" errorDisplay={errors.firstName} />
-                    <Input type="text" name="secondName" ref={register} required={lastNameValidation} placeholder="Pavardė" errorDisplay={errors.secondName} />
+                    <Input type="email" name="email" ref={register} required={requiredValidationCheck("Elektroninis paštas")} placeholder="Elektroninis paštas" errorDisplay={errors.email} />
+                    <Input type="text" name="firstName" ref={register} required={requiredValidationCheck("Vardas")} placeholder="Vardas" errorDisplay={errors.firstName} />
+                    <Input type="text" name="secondName" ref={register} required={requiredValidationCheck("Pavardė")} placeholder="Pavardė" errorDisplay={errors.secondName} />
                     <Input type="password" name="password" ref={register} required={passwordValidation} placeholder="Slaptažodis" errorDisplay={errors.password} />
+                    <WrongDetailsMessage wrongDetailsMessage={wrongRegisterDetails} />
                     <Button btnClass='ButtonBlue'>Registruotis</Button>
                     <h5>Turi egzistuojančią paskyrą? <span onClick={() => handleToggleLogin(ModalOptions.Login)}>Prisijunkti</span></h5>
                 </form>

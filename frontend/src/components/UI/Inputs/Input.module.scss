@@ -1,0 +1,17 @@
+.InputStyles {
+  input {
+    margin: 10px 0;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 90%;
+    font-size: 14px;
+  }
+}
+
+.InputError {
+  input {
+    border: 2px solid red;
+  }
+}

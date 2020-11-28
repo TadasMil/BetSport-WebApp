@@ -19,6 +19,9 @@
   width: 400px;
   padding: 30px;
 
+  form {
+    width: 100%;
+  }
   h3,
   h4,
   h5 {
@@ -44,16 +47,6 @@
     color: #2359a0;
     padding-bottom: 3px;
     cursor: pointer;
-  }
-
-  input {
-    margin: 10px auto;
-    padding: 10px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    width: 90%;
-    font-size: 14px;
   }
 
   p {

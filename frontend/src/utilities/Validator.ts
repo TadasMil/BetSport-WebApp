@@ -1,10 +1,3 @@
-export const requiredValidation = {
-  required: {
-    value: "true",
-    message: "Netinkamas elektroninis paštas",
-  },
-};
-
 export const passwordValidation = {
   required: {
     value: "true",
@@ -16,16 +9,11 @@ export const passwordValidation = {
   },
 };
 
-export const nameValidation = {
-  required: {
-    value: "true",
-    message: "Vardas laukas negali būti tuščias",
-  },
-};
-
-export const lastNameValidation = {
-  required: {
-    value: "true",
-    message: "Pavardė laukas negali būti tuščias",
-  },
+export const requiredValidationCheck = (name: string) => {
+  return {
+    required: {
+      value: "true",
+      message: `${name} negali būti tuščias`,
+    },
+  };
 };

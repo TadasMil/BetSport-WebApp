@@ -5,9 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../../UI/Button/Button'
 import { RootState } from '../../../store/reducers';
 import { ProfileBar } from '../../Profile/ProfileBar';
-import styles from './NavLinks.module.scss'
-import { Redirect } from 'react-router-dom';
 import { removeAuthToken } from '../../../store/actions/storeAuthToke';
+import styles from './NavLinks.module.scss'
 
 interface NavLinksProps {
     invokeLoginLayout: (selectedModal: ModalOptions) => void;

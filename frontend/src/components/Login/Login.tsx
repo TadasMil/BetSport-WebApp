@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { Button } from '../UI/Button/Button';
+import { requiredValidationCheck, passwordValidation } from '../../utilities/Validator'
 import { ModalOptions } from '../../enums/ModalOptions'
+import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
-import { requiredValidation, passwordValidation } from '../../utilities/Validator'
-import { IoMdClose } from 'react-icons/io'
-import { WrongDetails } from '../UI/ErrorHandlings/WrongDetails';
+import { WrongDetailsMessage } from '../UI/ErrorHandlings/WrongDetailsMessage';
 import { storeAuthToken } from '../../store/actions/storeAuthToke';
-import { RootState } from '../../store/reducers';
 import Input from '../UI/Inputs/Input'
 import axios from '../../axios/axios'
+import { IoMdClose } from 'react-icons/io'
+import { BackEndPoints } from '../../utilities/BackEndPoints';
 import styles from './Login.module.scss'
-import { Button } from '../UI/Button/Button';
 
 interface LoginProps {
     handleToggleLogin: (selectedModal: ModalOptions) => void;
@@ -26,8 +26,17 @@ export const Login: React.FC<LoginProps> = ({ handleToggleLogin }) => {
     const [wrongDetailsError, setWrongDetails] = useState<string>("");
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setWrongDetails("")
+        }, 3000)
+        return () => {
+            clearInterval(timeout);
+        }
+    }, [wrongDetailsError])
+
     const formSubmit = handleSubmit(({ email, password }) => {
-        axios.post('login', { email, password })
+        axios.post(BackEndPoints.loginUser, { email, password })
             .then(response => {
                 dispatch(storeAuthToken(response.data.accessToken));
                 handleToggleLogin(ModalOptions.None);
@@ -44,9 +53,9 @@ export const Login: React.FC<LoginProps> = ({ handleToggleLogin }) => {
                 <IoMdClose className={styles.Icon} onClick={() => handleToggleLogin(ModalOptions.None)}></IoMdClose>
                 <form onSubmit={formSubmit}>
                     <h3>Prisijungimas</h3>
-                    <Input type="email" name="email" ref={register} required={requiredValidation} placeholder="Elektroninis paštas" errorDisplay={errors.email} />
+                    <Input type="email" name="email" ref={register} required={requiredValidationCheck("Elektroninis paštas")} placeholder="Elektroninis paštas" errorDisplay={errors.email} />
                     <Input type="password" name="password" ref={register} required={passwordValidation} placeholder="Slaptažodis" errorDisplay={errors.password} />
-                    <WrongDetails wrongDetailsMessage={wrongDetailsError} />
+                    <WrongDetailsMessage wrongDetailsMessage={wrongDetailsError} />
                     <h4><span>Pamiršai slaptažodį?</span></h4>
                     <Button btnClass='ButtonBlue'>Prisijungti</Button>
                     <h5>Neturi paskyros? <span onClick={() => handleToggleLogin(ModalOptions.Register)}>Registruotis</span></h5>
@@ -54,4 +63,4 @@ export const Login: React.FC<LoginProps> = ({ handleToggleLogin }) => {
             </div>
         </div>
     )
-}
+};

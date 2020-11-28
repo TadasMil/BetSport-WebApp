@@ -3,10 +3,10 @@ const SHA512 = require("crypto-js/sha512");
 
 const handleIncomingUserData = async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body;
+    const { email, firstName, secondName, password } = req.body;
     const newUser = {
       firstName,
-      lastName,
+      secondName,
       email,
       password: SHA512(password),
     };
@@ -14,7 +14,7 @@ const handleIncomingUserData = async (req, res) => {
       res.status(200).json(response);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(409).json(err);
   }
 };
 

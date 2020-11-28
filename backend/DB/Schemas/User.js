@@ -5,12 +5,20 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true],
   },
-  lastName: {
+  secondName: {
     type: String,
     required: [true],
   },
   email: {
     type: String,
+    required: [true],
+  },
+  gamesPlayed: {
+    type: Number,
+    required: [true],
+  },
+  score: {
+    type: Number,
     required: [true],
   },
   password: {
