@@ -1,3 +1,9 @@
 .Layout {
-  margin-top: 55px;
+  max-width: 1600px;
+}
+
+@media (min-width: 1600px) {
+  .Layout {
+    margin: 2rem auto;
+  }
 }

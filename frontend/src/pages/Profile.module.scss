@@ -1,0 +1,32 @@
+.ProfilePage {
+  height: 100vh;
+  background: url("../assets/Images/profileBackImg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ProfilePageBox {
+  display: flex;
+  max-width: 1600px;
+  margin: 55px 30px;
+}
+
+.Profile {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  flex: 40%;
+}
+
+.MainProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.GameHistory {
+  flex: 40%;
+}

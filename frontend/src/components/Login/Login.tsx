@@ -5,12 +5,12 @@ import { ModalOptions } from '../../enums/ModalOptions'
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { WrongDetailsMessage } from '../UI/ErrorHandlings/WrongDetailsMessage';
-import { storeAuthToken } from '../../store/actions/storeAuthToke';
 import Input from '../UI/Inputs/Input'
 import axios from '../../axios/axios'
 import { IoMdClose } from 'react-icons/io'
 import { BackEndPoints } from '../../utilities/BackEndPoints';
 import styles from './Login.module.scss'
+import { storeUser } from '../../store/actions/userAction';
 
 interface LoginProps {
     handleToggleLogin: (selectedModal: ModalOptions) => void;
@@ -38,7 +38,7 @@ export const Login: React.FC<LoginProps> = ({ handleToggleLogin }) => {
     const formSubmit = handleSubmit(({ email, password }) => {
         axios.post(BackEndPoints.loginUser, { email, password })
             .then(response => {
-                dispatch(storeAuthToken(response.data.accessToken));
+                dispatch(storeUser(response.data.user))
                 handleToggleLogin(ModalOptions.None);
                 setWrongDetails("");
             })

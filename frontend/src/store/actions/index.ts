@@ -1,14 +1,14 @@
-export const SET_AUTH_ACTION = `SET_AUTH_STATE`;
-export const REMOVE_AUTH_TOKEN = "REMOVE_AUTH_TOKEN";
+export const SET_USER = "SET_USER";
+export const REMOVE_USER = "REMOVE_USER";
 
-interface AuthAction {
-  type: typeof SET_AUTH_ACTION;
+interface SetUserAction {
+  type: typeof SET_USER;
   payload?: any;
 }
 
-interface RemoveAuthAction {
-  type: typeof REMOVE_AUTH_TOKEN;
+interface RemoveUser {
+  type: typeof REMOVE_USER;
   payload?: any;
 }
 
-export type AuthActionTypes = AuthAction | RemoveAuthAction;
+export type UserActionTypes = SetUserAction | RemoveUser;

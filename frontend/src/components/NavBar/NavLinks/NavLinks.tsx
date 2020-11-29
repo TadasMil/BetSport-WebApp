@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../../UI/Button/Button'
 import { RootState } from '../../../store/reducers';
 import { ProfileBar } from '../../Profile/ProfileBar';
-import { removeAuthToken } from '../../../store/actions/storeAuthToke';
+import { removeUser } from '../../../store/actions/userAction';
 import styles from './NavLinks.module.scss'
 
 interface NavLinksProps {
@@ -14,12 +14,15 @@ interface NavLinksProps {
 
 export const NavLinks: React.FC<NavLinksProps> = ({ invokeLoginLayout }) => {
     const userToken = useSelector((state: RootState) => {
-        return state.auth.auth;
+        return {
+            token: state.user.user?.accessToken,
+            money: state.user.user?.score
+        }
     })
     const dispatch = useDispatch();
 
     const removeCurrentUser = (): void => {
-        dispatch(removeAuthToken());
+        dispatch(removeUser());
     }
 
     return (
@@ -32,14 +35,14 @@ export const NavLinks: React.FC<NavLinksProps> = ({ invokeLoginLayout }) => {
             </div>
             <div>
                 {
-                    !userToken ?
+                    !userToken.token ?
                         <>
                             <Button btnClass='ButtonGrey' onClick={() => invokeLoginLayout(ModalOptions.Login)}>Prisijungti</Button>
                             <Button btnClass='ButtonBlue' onClick={() => invokeLoginLayout(ModalOptions.Register)}>Registruotis</Button>
                         </>
                         :
                         <>
-                            <ProfileBar removeCurrentUser={removeCurrentUser} />
+                            <ProfileBar removeCurrentUser={removeCurrentUser} money={userToken.money} />
                         </>
                 }
             </div>

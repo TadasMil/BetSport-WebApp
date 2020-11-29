@@ -5,14 +5,15 @@ import styles from './ProfileBar.module.scss'
 import { Button } from '../UI/Button/Button';
 
 interface NavLinksProps {
+    money: number | undefined;
     removeCurrentUser: () => void;
 }
 
-export const ProfileBar: React.FC<NavLinksProps> = ({ removeCurrentUser }) => {
+export const ProfileBar: React.FC<NavLinksProps> = ({ removeCurrentUser, money }) => {
     return (
         <div className={styles.RightNavBarLinks}>
-            <h4>Pinigai: <span>1000</span>€</h4>
-            <Link btnClass='ButtonBlue' path='/home'>Profilis</Link>
+            <h4>Pinigai: <span>{money}</span>€</h4>
+            <Link btnClass='ButtonBlue' path='/profile/details'>Profilis</Link>
             <div className={styles.SettingsMenu}>
                 <button><FiSettings /></button>
                 <div className={styles.MenuItems}>
