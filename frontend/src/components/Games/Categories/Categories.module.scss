@@ -1,0 +1,49 @@
+.Category {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 80%;
+  color: white;
+  margin: 2rem 0;
+  border: 1px solid white;
+  border-radius: 15px;
+  -webkit-box-shadow: -30px -8px 31px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -30px -8px 31px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -30px -8px 31px 0px rgba(0, 0, 0, 0.75);
+  transform: translateX(-140%);
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+  img {
+    border-radius: inherit;
+  }
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+.Description {
+  width: 100%;
+  margin: 10px;
+
+  p {
+    line-height: 25px;
+    font-size: 17px;
+    margin: 5px 0 25px 0;
+    letter-spacing: 1px;
+  }
+
+  a {
+    margin: 7px 0;
+    letter-spacing: 2px;
+    font-size: 18px;
+  }
+}

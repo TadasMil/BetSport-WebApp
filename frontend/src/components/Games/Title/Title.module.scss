@@ -1,0 +1,37 @@
+.GameTitle {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 25px;
+  margin-bottom: 0;
+  -webkit-animation: action 1s infinite alternate, action 1s infinite alternate;
+  animation: color-change 1s infinite, action 1s infinite alternate;
+}
+
+@-webkit-keyframes action {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes action {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: red;
+  }
+  50% {
+    color: #2359a0;
+  }
+  100% {
+    color: white;
+  }
+}

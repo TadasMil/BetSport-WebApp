@@ -15,6 +15,8 @@ const initialState: User = {
     email: "",
     gamesPlayed: 0,
     gamesWon: 0,
+    moneyWon: 0,
+    moneyLost: 0,
     score: 0,
   },
 };

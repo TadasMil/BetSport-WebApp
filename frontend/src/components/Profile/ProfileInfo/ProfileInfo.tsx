@@ -10,11 +10,12 @@ export const ProfileInfo: React.FC = () => {
     const userDetails = useSelector((state: RootState) => {
         return state.user.user;
     })
+
     return (
         <div className={styles.ProfileInfo}>
             <ProfileTitle>Profilis</ProfileTitle>
             <MainProfileSide name={userDetails?.firstName} secondName={userDetails?.secondName} email={userDetails?.email} />
-            <Progress name={userDetails?.firstName} secondName={userDetails?.secondName} money={userDetails?.score} gamesPlayed={userDetails?.gamesPlayed} gamesWon={userDetails?.gamesWon} />
+            <Progress name={userDetails?.firstName} secondName={userDetails?.secondName} money={userDetails?.score} gamesPlayed={userDetails?.gamesPlayed} gamesWon={userDetails?.gamesWon} moneyLost={userDetails?.moneyLost} moneyWon={userDetails?.moneyWon} />
         </div>
     )
 }

@@ -5,5 +5,7 @@ export interface IUser {
   email: string;
   gamesPlayed: number;
   gamesWon: number;
+  moneyWon: number;
+  moneyLost: number;
   score: number;
 }

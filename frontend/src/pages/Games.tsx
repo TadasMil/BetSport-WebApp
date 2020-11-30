@@ -2,6 +2,9 @@ import React from 'react'
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/reducers';
+import styles from "./Games.module.scss"
+import { Categories } from '../components/Games/Categories/Category';
+import { gameTypes } from '../components/Games/Games';
 
 
 export const Games = () => {
@@ -14,8 +17,12 @@ export const Games = () => {
     }
 
     return (
-        <div>
-            <div>games</div>
+        <div className={styles.GamesLayout}>
+            <div className={styles.CategoriesLayout}>
+                {gameTypes.map(game => {
+                    return <Categories key={game.id} gameInfo={game} />
+                })}
+            </div>
         </div>
     )
 }
