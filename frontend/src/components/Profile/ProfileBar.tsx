@@ -10,6 +10,7 @@ interface NavLinksProps {
 }
 
 export const ProfileBar: React.FC<NavLinksProps> = ({ removeCurrentUser, money }) => {
+
     return (
         <div className={styles.RightNavBarLinks}>
             <h4>Pinigai: <span>{money}</span>€</h4>

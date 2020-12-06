@@ -1,10 +1,11 @@
 import { createStore } from "redux";
-import rootReducer from "./reducers";
 import { persistStore, persistReducer } from "redux-persist";
+import rootReducer from "./reducers";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
 const persistConfig = {
-  key: "root", //kas bus persistinama
+  key: "user", //kas bus persistinama
+  blacklist: ["snackbar"],
   storage,
 };
 

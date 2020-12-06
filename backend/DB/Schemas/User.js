@@ -17,6 +17,18 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: [true],
   },
+  gamesWon: {
+    type: Number,
+    required: [true],
+  },
+  moneyWon: {
+    type: Number,
+    required: [true],
+  },
+  moneyLost: {
+    type: Number,
+    required: [true],
+  },
   score: {
     type: Number,
     required: [true],

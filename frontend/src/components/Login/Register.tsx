@@ -7,8 +7,10 @@ import { WrongDetailsMessage } from '../UI/ErrorHandlings/WrongDetailsMessage';
 import { useForm } from 'react-hook-form'
 import axios from '../../axios/axios'
 import { IoMdClose } from 'react-icons/io'
-import styles from './Login.module.scss'
 import { BackEndPoints } from '../../utilities/BackEndPoints'
+import styles from './Login.module.scss'
+import { useDispatch } from 'react-redux'
+import { setDisplaySnackbar } from '../../store/actions/snackbarAction'
 
 interface RegisterProps {
     handleToggleLogin: (selectedModal: ModalOptions) => void;
@@ -25,9 +27,13 @@ export const Register: React.FC<RegisterProps> = ({ handleToggleLogin }) => {
     const { register, handleSubmit, errors } = useForm<UserData>();
     const [wrongRegisterDetails, setWrongRegisterDetails] = useState<string>("");
 
+    const dispatch = useDispatch();
+
     const formSubmit = handleSubmit(({ email, firstName, secondName, password }) => {
         axios.post(BackEndPoints.registerUser, { email, firstName, secondName, password })
             .then(response => {
+                console.log(response.data.message)
+                dispatch(setDisplaySnackbar(response.data.message))
                 handleToggleLogin(ModalOptions.Login);
             })
             .catch(error => {

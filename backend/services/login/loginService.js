@@ -12,14 +12,20 @@ const checkForUserDetails = (user) => {
     if (approveUserExistence(foundUser)) {
       const accessToken = jwt.sign(
         existingUser,
-        process.env.ACCESS_TOKEN_SECRET
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "10d" }
       );
-      currentUserPsw == foundUser[0].password &&
+      if (currentUserPsw == foundUser[0].password) {
+        delete existingUser[0]._doc.password;
+        delete existingUser[0]._doc.__v;
+
+        existingUser[0]._doc.accessToken = accessToken;
         resolve({
           success: true,
           message: "Sekmingai prisijungta",
-          accessToken: accessToken,
+          user: existingUser[0],
         });
+      }
     }
 
     reject({
