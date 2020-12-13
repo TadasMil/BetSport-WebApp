@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { NavBar } from './components/NavBar/NavBar';
-import { Layout } from './components/UI/Layout/Layout';
+import { Footer } from './components/UI/Footer/Footer';
 import { MainWrapper } from './components/UI/Layout/MainWrapper/MainWrapper';
+import { Page } from './components/UI/Layout/Page/Page';
 import { Routes } from './routes/Routes';
-import { RootState } from './store/reducers';
 import { Snackbar } from './utilities/Snackbar';
 
 function App() {
@@ -12,12 +11,14 @@ function App() {
   return (
     <>
       <NavBar />
-      <MainWrapper>
+      <Page>
+
         <Snackbar>
           <Routes>
           </Routes>
         </Snackbar>
-      </MainWrapper>
+        <Footer />
+      </Page>
     </>
   );
 }

@@ -1,0 +1,22 @@
+.Description {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 25px;
+  color: white;
+  padding: 20px 0;
+  h3,
+  p {
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .Description {
+    width: 90%;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

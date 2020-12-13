@@ -1,0 +1,22 @@
+.License {
+  font-size: 11px;
+  text-align: right;
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .License {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .License {
+    p {
+      margin: 5px 0;
+    }
+  }
+}

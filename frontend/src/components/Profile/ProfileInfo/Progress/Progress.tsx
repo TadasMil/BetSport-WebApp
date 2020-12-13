@@ -30,9 +30,9 @@ export const Progress: React.FC<ProfileInfoProps> = ({ name, secondName, money, 
             <div className={styles.ProgressDetail}>
                 <h1>{name} {secondName}</h1>
                 <div>
-                    <RiMoneyEuroCircleFill />
                     <p>Pinigai:</p>
                     <h2>{money}</h2>
+                    <RiMoneyEuroCircleFill />
                 </div>
             </div>
             <div className={styles.ProgressList}>

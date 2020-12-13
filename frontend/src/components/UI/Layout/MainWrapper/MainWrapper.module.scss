@@ -1,5 +1,10 @@
 .MainWrapper {
   position: relative;
   top: 0%;
-  height: 100vh;
+  flex: 1 0 auto;
+  background: url("../../../../assets/Images/profileBackImg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }

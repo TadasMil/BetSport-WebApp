@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { SET_USER, REMOVE_USER } from "../actions/";
+import { SET_USER, REMOVE_USER, UPDATE_SCORE } from "../actions/";
 import { UserActionTypes } from "../actions/index";
 import { IUser } from "../../Interfaces/IUser";
 
@@ -30,6 +30,11 @@ const userReducer: Reducer<User, UserActionTypes> = (
       return {
         ...state,
         user: action.payload,
+      };
+    case UPDATE_SCORE:
+      return {
+        ...state,
+        user: { ...state.user, score: action.payload },
       };
     case REMOVE_USER:
       return {

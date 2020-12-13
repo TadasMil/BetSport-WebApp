@@ -1,0 +1,93 @@
+.ContactBorders {
+  border-top: 1px solid rgb(53, 53, 53);
+  border-bottom: 1px solid rgb(109, 109, 109);
+}
+
+.ContactArea {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: white;
+  padding: 30px 0;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.ListOfContacts {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px 0;
+}
+
+.Contact {
+  display: flex;
+  align-items: center;
+}
+
+.Icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2c71ca;
+
+  span {
+    font-size: 25px;
+  }
+}
+
+.ContactInfo {
+  margin-left: 10px;
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgb(150, 150, 150);
+  }
+}
+
+@media (max-width: 800px) {
+  .Contact {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ContactInfo {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .Icon {
+    width: 40px;
+    height: 40px;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .ContactInfo {
+    h3 {
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+}

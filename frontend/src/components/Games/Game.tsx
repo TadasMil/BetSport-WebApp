@@ -1,4 +1,3 @@
-import { RiFacebookBoxFill } from "react-icons/ri";
 import React from 'react'
 import { useParams } from "react-router-dom";
 import { Machine } from "./Machine/Machine";
@@ -12,24 +11,24 @@ export const Game = () => {
     switch (id) {
         case "1":
             return (
-                <GamesLayout>
+                <>
                     <TopWins />
                     <Machine />
-                </GamesLayout>
+                </>
             );
         case "2":
             return (
-                <GamesLayout>
+                <>
                     <TopWins />
                     <Machine />
-                </GamesLayout>
+                </>
             );
         case "3":
             return (
-                <GamesLayout>
+                <>
                     <TopWins />
                     <Machine />
-                </GamesLayout>
+                </>
             );
     }
 }

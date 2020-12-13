@@ -6,17 +6,21 @@ export const TopWins = () => {
     return (
         <div className={styles.TopWins}>
             <Title name="Lyderiai" />
-            <div>
-                <h3>tadas: 500</h3>
+            <div className={styles.Winner}>
+                <h3>tadas</h3>
+                <h5>500€</h5>
             </div>
-            <div>
-                <h3>tadas: 500</h3>
+            <div className={styles.Winner}>
+                <h3>tadas</h3>
+                <h5>500€</h5>
             </div>
-            <div>
-                <h3>tadas: 500</h3>
+            <div className={styles.Winner}>
+                <h3>tadas</h3>
+                <h5>500€</h5>
             </div>
-            <div>
-                <h3>tadas: 500</h3>
+            <div className={styles.Winner}>
+                <h3>tadas</h3>
+                <h5>500€</h5>
             </div>
         </div>
     )

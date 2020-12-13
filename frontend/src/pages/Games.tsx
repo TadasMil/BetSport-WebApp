@@ -18,12 +18,12 @@ export const Games = () => {
     }
 
     return (
-        <GamesLayout>
+        <>
             <div className={styles.CategoriesLayout}>
                 {gameTypes.map(game => {
                     return <Category key={game.id} gameInfo={game} gamePath={game.id} />
                 })}
             </div>
-        </GamesLayout>
+        </>
     )
 }

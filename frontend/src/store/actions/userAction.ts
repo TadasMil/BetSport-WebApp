@@ -1,4 +1,4 @@
-import { SET_USER, REMOVE_USER } from "./";
+import { SET_USER, REMOVE_USER, UPDATE_SCORE } from "./";
 import { IUser } from "../../Interfaces/IUser";
 
 const storeUser = (user: IUser) => ({
@@ -6,8 +6,13 @@ const storeUser = (user: IUser) => ({
   payload: user,
 });
 
+const updateUserScore = (score: number) => ({
+  type: UPDATE_SCORE,
+  payload: score,
+});
+
 const removeUser = () => ({
   type: REMOVE_USER,
 });
 
-export { storeUser, removeUser };
+export { storeUser, removeUser, updateUserScore };

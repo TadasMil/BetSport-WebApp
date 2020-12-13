@@ -71,3 +71,9 @@
   color: #2359a0;
   cursor: pointer;
 }
+
+@media (min-width: 1600px) {
+  .Login {
+    width: 600px;
+  }
+}

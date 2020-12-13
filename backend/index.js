@@ -4,6 +4,7 @@ const loginRoute = require("./routes/login/login.js");
 const registerRoute = require("./routes/register/register");
 const gameMachine = require("./routes/games/game1/gameMachine");
 const authMiddleware = require("./services/auth/authMiddleware");
+const userRoute = require("./routes/user/userRoutes");
 var cors = require("cors");
 const connectDB = require("./DB/connection");
 var bodyParser = require("body-parser");
@@ -20,6 +21,7 @@ app.use("/register", registerRoute);
 
 app.use(authMiddleware.isUserValid);
 app.use("/game", gameMachine);
+app.use("/user", userRoute);
 
 const PORT = process.env.PORT || 5000;
 

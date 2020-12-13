@@ -9,6 +9,8 @@ import { BaseRoute } from './BaseRoute';
 import Profile from '../pages/Profile';
 import { Game } from '../components/Games/Game';
 import { AuthWrapper } from '../utilities/AuthWrapper';
+import { GamesLayout } from '../components/UI/Layout/Games/GamesLayout';
+import { ProfileBackground } from '../components/UI/Layout/ProfileLayout/ProfileBackground';
 
 export const Routes: React.FC = () => {
     return (
@@ -16,10 +18,10 @@ export const Routes: React.FC = () => {
             <Switch>
                 <BaseRoute exact path="/" layout={Layout} component={Home} />
                 <BaseRoute exact path="/about" layout={Layout} component={About} />
-                <BaseRoute exact path="/games" layout={FullLayout} component={Games} />
+                <BaseRoute exact path="/games" layout={GamesLayout} component={Games} />
                 <AuthWrapper>
-                    <BaseRoute path={`/games/:id`} layout={FullLayout} component={Game} />
-                    <BaseRoute path="/profile" layout={FullLayout} component={Profile} />
+                    <BaseRoute path={`/games/:id`} layout={GamesLayout} component={Game} />
+                    <BaseRoute path="/profile" layout={ProfileBackground} component={Profile} />
                 </AuthWrapper>
             </Switch>
         </>
