@@ -12,7 +12,6 @@ function App() {
     <>
       <NavBar />
       <Page>
-
         <Snackbar>
           <Routes>
           </Routes>

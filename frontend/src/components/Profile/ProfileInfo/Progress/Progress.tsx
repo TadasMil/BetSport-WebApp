@@ -4,6 +4,7 @@ import { ProgressInfo } from './ProgressInfo'
 import { RiMoneyEuroCircleFill } from "react-icons/ri"
 import { faTrophy, faDice, faAngry, faChartLine } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ProgressDetail.module.scss"
+import { Icon } from '../../../UI/Icon/Icon';
 
 
 interface ProfileInfoProps {
@@ -30,9 +31,8 @@ export const Progress: React.FC<ProfileInfoProps> = ({ name, secondName, money, 
             <div className={styles.ProgressDetail}>
                 <h1>{name} {secondName}</h1>
                 <div>
-                    <p>Pinigai:</p>
                     <h2>{money}</h2>
-                    <RiMoneyEuroCircleFill />
+                    <Icon styling="MoneyIcon"><RiMoneyEuroCircleFill /></Icon>
                 </div>
             </div>
             <div className={styles.ProgressList}>

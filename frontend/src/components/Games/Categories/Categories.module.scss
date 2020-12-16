@@ -47,3 +47,25 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 1000px) {
+  .Category {
+    width: 90%;
+  }
+}
+
+@media (max-width: 650px) {
+  .Category {
+    flex-direction: column-reverse;
+  }
+
+  .Description {
+    width: 90%;
+    margin: 10px auto 20px auto;
+    text-align: center;
+
+    p {
+      font-size: 15px;
+    }
+  }
+}

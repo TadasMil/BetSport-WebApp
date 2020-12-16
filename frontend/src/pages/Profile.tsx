@@ -14,7 +14,7 @@ import styles from "./Profile.module.scss"
 
 export type userInfoType = string | undefined | number;
 
-interface IProfileSubRoutes {
+export interface IProfileSubRoutes {
     id: number;
     path: string;
     name: string;

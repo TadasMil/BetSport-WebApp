@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
 import { Machine } from "./Machine/Machine";
-import { GamesLayout } from "../UI/Layout/Games/GamesLayout";
 import { TopWins } from "./TopWins/TopWins";
 
 export const Game = () => {

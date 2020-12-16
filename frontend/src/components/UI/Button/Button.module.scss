@@ -52,6 +52,7 @@
   text-decoration: none;
   padding: 15px;
   color: #000000;
+  text-align: center;
 }
 
 .MenuSettingsButton:hover {
@@ -110,5 +111,12 @@
     background-color: black;
     font-size: 25px;
     padding: 5px 5px;
+  }
+}
+
+.Profile {
+  color: white;
+  svg {
+    font-size: 30px;
   }
 }

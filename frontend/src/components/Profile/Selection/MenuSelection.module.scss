@@ -22,3 +22,9 @@
     background-color: #4b4b4b15;
   }
 }
+
+@media (max-width: 800px) {
+  .MenuSelection {
+    display: none;
+  }
+}

@@ -3,3 +3,9 @@
   margin-left: 30%;
   color: white;
 }
+
+@media (max-width: 800px) {
+  .ProfileLayout {
+    margin-left: 0;
+  }
+}

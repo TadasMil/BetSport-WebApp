@@ -11,10 +11,6 @@
     display: flex;
     align-items: center;
 
-    svg {
-      font-size: 30px;
-      color: #4b8fe9;
-    }
     h2 {
       margin: 5px 0;
       font-size: 23px;
@@ -40,4 +36,14 @@
   color: white;
   border-radius: 10px;
   padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .ProgressDetail {
+    flex-direction: column;
+  }
+
+  .ProgressList {
+    margin-bottom: 3rem;
+  }
 }
