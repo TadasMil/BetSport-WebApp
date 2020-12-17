@@ -21,15 +21,19 @@ export const Slots: React.FC<SlotsProps> = ({ prizeSelection, handlePrizeChangeL
                             {
                                 PRIZE_VARIANTS.TRIPLE === prizeSelection ?
                                     <div className={styles.SlotRow}>
-                                        <Slot>{item.item}</Slot>
-                                        <Slot>{item.item}</Slot>
-                                        <Slot>{item.item}</Slot>
+                                        <div>
+                                            <Slot>{item.item}</Slot>
+                                            <Slot>{item.item}</Slot>
+                                            <Slot>{item.item}</Slot>
+                                        </div>
                                         <p>Statymas x {item.multiplication}</p>
                                     </div>
                                     :
                                     <div className={styles.SlotRow}>
-                                        <Slot>{item.item}</Slot>
-                                        <Slot>{item.item}</Slot>
+                                        <div>
+                                            <Slot>{item.item}</Slot>
+                                            <Slot>{item.item}</Slot>
+                                        </div>
                                         <p>Statymas x {item.multiplication2}</p>
                                     </div>
                             }

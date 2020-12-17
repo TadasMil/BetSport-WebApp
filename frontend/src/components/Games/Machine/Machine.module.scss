@@ -59,3 +59,31 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media (max-width: 850px) {
+  .MachineGameBox {
+    width: 600px;
+  }
+
+  .GameBox {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .GameBox {
+    padding: 10px;
+  }
+  .MachineGameBox {
+    width: 90%;
+  }
+
+  .Slots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size: 40px;
+    }
+  }
+}

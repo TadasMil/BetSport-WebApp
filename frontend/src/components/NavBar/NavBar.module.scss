@@ -13,5 +13,13 @@
 
   img {
     margin-left: 20px;
+    position: relative;
+    z-index: 50;
+  }
+}
+
+@media (max-width: 800px) {
+  .NavBar {
+    justify-content: space-between;
   }
 }

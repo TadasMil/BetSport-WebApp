@@ -26,7 +26,7 @@ export const snackbarReducer: Reducer<IMessage, SnackbarActionTypes> = (
     case REMOVE_SNACKBAR:
       return {
         ...state,
-        message: undefined,
+        message: "",
       };
   }
 

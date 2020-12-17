@@ -23,6 +23,12 @@
   border-bottom: 3px solid #ffffff;
 }
 
+@media (max-width: 800px) {
+  .ButtonLink {
+    height: initial;
+  }
+}
+
 .ButtonGrey {
   @extend .ButtonTrans;
   padding: 5px 20px;
@@ -58,6 +64,11 @@
 .MenuSettingsButton:hover {
   color: #ffffff;
   background-color: #2359a0;
+}
+
+.MenuSettingsButton-mobile {
+  @extend .MenuSettingsButton;
+  color: #ffffff;
 }
 
 .ButtonRoulette {
@@ -119,4 +130,12 @@
   svg {
     font-size: 30px;
   }
+}
+
+.Hamburger {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 50;
 }

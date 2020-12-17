@@ -6,8 +6,9 @@ interface ButtonProps {
     path: string;
     children: string;
     btnClass: any;
+    onInteractive?: () => void;
 }
 
-export const Link: React.FC<ButtonProps> = ({ path, children, btnClass }) => {
-    return <RouterLink className={styles[btnClass]} to={path}>{children}</RouterLink>
+export const Link: React.FC<ButtonProps> = ({ path, children, btnClass, onInteractive }) => {
+    return <RouterLink className={styles[btnClass]} to={path} onClick={onInteractive}>{children}</RouterLink>
 }

@@ -1,31 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { removeDisplaySnackbar } from '../store/actions/snackbarAction';
 import { RootState } from '../store/reducers'
 import styles from "./Snackbar.module.scss";
 
 export const Snackbar: React.FC = ({ children }) => {
     const snackbar = useSelector((state: RootState) => state.snackbar.message);
-    const [snackbarDisplay, setSnackbar] = useState<string | undefined>("");
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setSnackbar(snackbar);
-        const timeout = setTimeout(() => {
-            setSnackbar("");
-        }, 3000)
-        return () => {
-            clearInterval(timeout);
+        if (snackbar) {
+            const timeout = setTimeout(() => {
+                dispatch(removeDisplaySnackbar());
+            }, 3000);
+
+            return () => clearTimeout(timeout);
         }
-    }, [snackbar])
+
+        return undefined;
+    }, [dispatch, snackbar])
+
 
     return (
         <>
             {children}
             <>
                 {
-                    snackbarDisplay &&
+                    snackbar &&
                     < div className={styles.Snackbar}>
                         <div className={styles.SnackbarPopUp}>
-                            <p>{snackbarDisplay}</p>
+                            <p>{snackbar}</p>
                         </div>
                     </div>
                 }

@@ -8,3 +8,9 @@
   display: flex;
   flex: 1 0 auto;
 }
+
+@media (max-width: 1200px) {
+  .GamesLayout {
+    flex-direction: column-reverse;
+  }
+}
